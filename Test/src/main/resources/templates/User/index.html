@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Student List</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>IsDeleted</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!--/*@thymesVar id="users" type="java.util.List<org.example.test.Entities.User> Users"*/-->
+        <tr th:each="user, userStat : ${users}">
+            <td th:text="${userStat.index + 1}"></td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="|${user.lastName} ${user.firstName}|"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.isDeleted}"></td>
+            <td>
+                <a class="btn btn-primary btn-sm" th:href="'/users/view/'+${user.id}">View</a>
+                <a class="btn btn-danger btn-sm" th:href="'/users/delete/'+${user.id}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" onclick="location.href='/users/new'">Create</button>
+</div>
+<!-- Bootstrap JS and dependencies -->
+</body>
+</html>

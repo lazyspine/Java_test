@@ -12,7 +12,7 @@ import java.util.List;
 @ToString
 public class Role {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String role_id;
     @Column(nullable = false)
     private String role_name;

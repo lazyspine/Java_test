@@ -22,7 +22,7 @@ public class User {
     private String lastName;
     @Column(nullable = false)
     private String email;
-    @Column(columnDefinition = "boolean default false")
+    @Column(nullable = false)
     private boolean isDeleted;
 
     @ManyToOne
