@@ -2,6 +2,7 @@ package org.example.test.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.List;
 
 @Entity
@@ -17,6 +18,6 @@ public class Role {
     @Column(nullable = false)
     private String role_name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "role")
     private List<User> users;
 }

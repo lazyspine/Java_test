@@ -5,6 +5,7 @@ import org.example.test.Repositories.RoleRepositories;
 import org.example.test.RequestEntities.RequestCreateRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 @Service
 public class RoleService {
@@ -27,4 +28,7 @@ public class RoleService {
        }
     }
 
+    public Role getRoleById(String id){
+        return roleRepositories.findById(id).orElseThrow(()-> new RuntimeException("Role not found"));
+    }
 }

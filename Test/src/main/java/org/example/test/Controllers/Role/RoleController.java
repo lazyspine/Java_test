@@ -1,11 +1,8 @@
-package org.example.test.Controller.Role;
+package org.example.test.Controllers.Role;
 
 import org.example.test.Entities.Role;
-
 import org.example.test.RequestEntities.RequestCreateRole;
-
 import org.example.test.Services.RoleService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +20,7 @@ public class RoleController {
     @GetMapping("")
     public String showAllUser(Model model) {
         List<Role> role = roleService.getAllRole();
-        model.addAttribute("role", role);
+        model.addAttribute("roles", role);
         return "role/index";
     }
 

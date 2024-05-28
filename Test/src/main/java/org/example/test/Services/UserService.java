@@ -23,6 +23,7 @@ public class UserService {
             user.setEmail(requestCreateUser.getEmail());
             user.setPassword(requestCreateUser.getPassword());
             user.setDeleted(false);
+            user.setRole(requestCreateUser.getRole());
             userRepositories.save(user);
             return user;
         }
@@ -34,5 +35,8 @@ public class UserService {
 
     public List<User> getAllUser(){
         return userRepositories.findAll();
+    }
+    public User getUserById(String id){
+        return userRepositories.findById(id).orElseThrow(()->new RuntimeException("User with "+id+" Not Found"));
     }
 }
